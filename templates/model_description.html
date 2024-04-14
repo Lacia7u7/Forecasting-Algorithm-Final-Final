@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Models Description</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .container {
+        margin-top: 30px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+        height: 0;
+        overflow: hidden;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .navbar-nav {
+            flex-direction: column;
+        }
+        .navbar-nav .nav-item {
+            margin-right: 0;
+        }
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Learn AI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('datasets') }}">Datasets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('models') }}">Models</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('predict') }}">Predict</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('results') }}">Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('model_description') }}">Model Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('user_page') }}">User Page</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Models Description</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">LGBM Regressor</h5>
+                    <p class="card-text">LGBM Regressor es un algoritmo de regresión basado en árboles de decisión. Es extremadamente rápido y eficiente, y es útil para problemas de regresión con grandes conjuntos de datos.</p>
+                    <p class="card-text"><strong>Max Depth:</strong> Es el parámetro que controla la profundidad máxima de los árboles. Una mayor profundidad puede permitir que el modelo capture relaciones más complejas en los datos, pero también puede conducir a un sobreajuste.</p>
+                    <p class="card-text"><strong>Número de Estimadores:</strong> Es el número de árboles de decisión que se entrenan en el modelo. Un mayor número de estimadores puede mejorar la precisión del modelo, pero también aumenta el tiempo de entrenamiento.</p>
+                    <p class="card-text">LGBM Regressor es útil en situaciones donde se requiere una alta eficiencia y rapidez en conjuntos de datos grandes. Algunos casos de uso comunes incluyen:</p>
+                    <ul>
+                        <li>Predicción de precios de acciones en tiempo real.</li>
+                        <li>Predicción de la demanda de productos en la industria minorista.</li>
+                        <li>Análisis de riesgo crediticio en instituciones financieras.</li>
+                    </ul>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/n_ZMQj09S6w" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Random Forest Regressor</h5>
+                    <p class="card-text">Random Forest Regressor es otro algoritmo de regresión basado en árboles de decisión. Consiste en un conjunto de árboles de decisión aleatorios que se combinan para obtener predicciones más robustas.</p>
+                    <p class="card-text"><strong>Max Depth:</strong> Al igual que en LGBM Regressor, controla la profundidad máxima de los árboles en el bosque.</p>
+                    <p class="card-text"><strong>Número de Estimadores:</strong> Representa el número de árboles en el bosque. Cuantos más árboles haya, más robusto será el modelo, pero también aumentará el costo computacional.</p>
+                    <p class="card-text">Random Forest Regressor es adecuado para problemas donde se necesita robustez y capacidad de generalización. Algunos casos de uso incluyen:</p>
+                    <ul>
+                        <li>Diagnóstico médico basado en múltiples variables.</li>
+                        <li>Predicción de precios de viviendas en el mercado inmobiliario.</li>
+                        <li>Modelado de series temporales para predecir el tráfico en una red de transporte.</li>
+                    </ul>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/X1MRbEnEq2s" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Models, Datasets, and Predict</title>
+    <title>Predict</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,86 +51,135 @@
         th {
             background-color: #f2f2f2;
         }
+        /* Media query for responsive tables */
+        @media screen and (max-width: 600px) {
+            table {
+                overflow-x: auto;
+                display: block;
+            }
+            th, td {
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="{{ url_for('datasets') }}">Datasets</a></li>
-        <li><a href="{{ url_for('models') }}">Models</a></li>
-        <li><a href="{{ url_for('predict') }}">Predict</a></li>
-        <li><a href="{{ url_for('results') }}">Results</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('model_description') }}">Model Description</a></li>
-        <li><a href="{{ url_for('user_page') }}">User Page</a></li>
-    </ul>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Learn AI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('datasets') }}">Datasets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('models') }}">Models</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('predict') }}">Predict</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('results') }}">Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('model_description') }}">Model Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('user_page') }}">User Page</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-<h1>User Models and Datasets</h1>
-<h2>User Saved Models</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Regressor</th>
-        <th>Parameters</th>
-        <th>Train Parameters</th>
-        <th>Upload Date</th>
-        <th>Actions</th>
-    </tr>
-    {% for model in models %}
-    <tr>
-        <td>{{ model.name}}</td>
-        <td>{{ model.regressor }}</td>
-        <td>{{ model.params }}</td>
-        <td>{{ model.train_params }}</td>
-        <td>{{ model.upload_date }}</td>
-        <td><a href="{{ model.file_url }}">Download Model</a></td>
-    </tr>
-    {% endfor %}
-</table>
-
-<h2>Uploaded Datasets</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>File Name</th>
-        <th>Upload Date</th>
-        <th>Rows</th>
-        <th>Columns</th>
-        <th>Actions</th>
-    </tr>
-    {% for dataset in datasets %}
-    {% set dataset_dict = dataset.to_dict() %}
-    <tr>
-        <td>{{ dataset_dict['name'] }}</td>
-        <td>{{ dataset_dict['original_name'] }}</td>
-        <td>{{ dataset_dict['upload_date'] }}</td>
-        <td>{{ dataset_dict['rows'] }}</td>
-        <td>{{ dataset_dict['columns'] }}</td>
-        <td><a href="{{ dataset_dict['file_url'] }}">Download CSV</a></td>
-    </tr>
-    {% endfor %}
-</table>
-
-<h1>Predict</h1>
-<form action="{{ url_for('prepare_train_mapping') }}" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you want to execute the prediction?');">
-    <label for="model_root">Select Model:</label>
-    <select name="model_root" id="model_root">
-        {% for model in models %}
-        <option value="{{ model.root }}">{{ model.name }}</option>
-        {% endfor %}
-    </select>
-    <br>
-    <label for="dataset_root">Select Dataset:</label>
-    <select name="dataset_root" id="dataset_root">
-        {% for dataset in datasets %}
-        {% set dataset_dict = dataset.to_dict() %}
-        <option value="{{ dataset_dict['root'] }}">{{dataset_dict['name']}}</option>
-        {% endfor %}
-    </select>
-    <br>
-    <!-- Add other form fields for prediction parameters -->
-    <button type="submit">Execute Prediction</button>
-</form>
-
+<div class="container">
+    <h1>Predict</h1>
+    <form action="{{ url_for('prepare_train_mapping') }}" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you want to execute the prediction?');">
+        <div class="form-group">
+            <label for="model_root">Select Model:</label>
+            <select name="model_root" id="model_root" class="form-control">
+                {% for model in models %}
+                <option value="{{ model.root }}">{{ model.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dataset_root">Select Dataset:</label>
+            <select name="dataset_root" id="dataset_root" class="form-control">
+                {% for dataset in datasets %}
+                {% set dataset_dict = dataset.to_dict() %}
+                <option value="{{ dataset_dict['root'] }}">{{dataset_dict['name']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Add other form fields for prediction parameters -->
+        <button type="submit" class="btn btn-primary">Execute Prediction</button>
+    </form>
+</div>
+<div class="container">
+    <h2>User Saved Models</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Regressor</th>
+                    <th>Parameters</th>
+                    <th>Train Parameters</th>
+                    <th>Upload Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model in models %}
+                <tr>
+                    <td>{{ model.name}}</td>
+                    <td>{{ model.regressor }}</td>
+                    <td>{{ model.params }}</td>
+                    <td>{{ model.train_params }}</td>
+                    <td>{{ model.upload_date }}</td>
+                    <td><a href="{{ model.file_url }}">Download Model</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <h2>Uploaded Datasets</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>File Name</th>
+                    <th>Upload Date</th>
+                    <th>Rows</th>
+                    <th>Columns</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dataset in datasets %}
+                {% set dataset_dict = dataset.to_dict() %}
+                <tr>
+                    <td>{{ dataset_dict['name'] }}</td>
+                    <td>{{ dataset_dict['original_name'] }}</td>
+                    <td>{{ dataset_dict['upload_date'] }}</td>
+                    <td>{{ dataset_dict['rows'] }}</td>
+                    <td>{{ dataset_dict['columns'] }}</td>
+                    <td><a href="{{ dataset_dict['file_url'] }}">Download CSV</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

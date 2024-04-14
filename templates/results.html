@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forecast Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,62 +38,90 @@
             margin: auto;
             text-align: center;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
+        /* Media query for responsive tables */
+        @media screen and (max-width: 600px) {
+            table {
+                overflow-x: auto;
+                display: block;
+            }
+            th, td {
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="{{ url_for('datasets') }}">Datasets</a></li>
-        <li><a href="{{ url_for('models') }}">Models</a></li>
-        <li><a href="{{ url_for('predict') }}">Predict</a></li>
-        <li><a href="{{ url_for('results') }}">Results</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('model_description') }}">Model Description</a></li>
-        <li><a href="{{ url_for('user_page') }}">User Page</a></li>
-    </ul>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Learn AI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('datasets') }}">Datasets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('models') }}">Models</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('predict') }}">Predict</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('results') }}">Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('model_description') }}">Model Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('user_page') }}">User Page</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-<h1>Forecast Results</h1>
-<table border="1">
-    <tr>
-        <th>Forecast Root</th>
-        <th>Model Root</th>
-        <th>Dataset Root</th>
-        <th>Train Params</th>
-        <th>Date and Time</th>
-        <th>Metrics</th>
-        <th>Download CSV</th>
-        <th>View Plot</th>
-    </tr>
-    {% for forecast in forecasts %}
-    <tr>
-        <td>{{ forecast.forecast_root }}</td>
-        <td>{{ forecast.model_root }}</td>
-        <td>{{ forecast.dataset_root }}</td>
-        <td>{{ forecast.train_params }}</td>
-        <td>{{ forecast.datetime }}</td>
-        <td class="metrics-cell">
-            <strong>MSE:</strong> {{ forecast.metrics.mse }}<br>
-            <strong>R2:</strong> {{ forecast.metrics.r2 }}<br>
-            <strong>MAE:</strong> {{ forecast.metrics.mae }}<br>
-            <strong>RMSE:</strong> {{ forecast.metrics.rmse }}
-        </td>
-        <td><a href="{{ forecast.csv_url }}">Download CSV</a></td>
-        <td><a href="{{ forecast.plot_url }}">View Plot</a></td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="container">
+    <h1>Forecast Results</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Forecast Root</th>
+                    <th>Model Root</th>
+                    <th>Dataset Root</th>
+                    <th>Train Params</th>
+                    <th>Date and Time</th>
+                    <th>Metrics</th>
+                    <th>Download CSV</th>
+                    <th>View Plot</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for forecast in forecasts %}
+                <tr>
+                    <td>{{ forecast.forecast_root }}</td>
+                    <td>{{ forecast.model_root }}</td>
+                    <td>{{ forecast.dataset_root }}</td>
+                    <td>{{ forecast.train_params }}</td>
+                    <td>{{ forecast.datetime }}</td>
+                    <td class="metrics-cell">
+                        <strong>MSE:</strong> {{ forecast.metrics.mse }}<br>
+                        <strong>R2:</strong> {{ forecast.metrics.r2 }}<br>
+                        <strong>MAE:</strong> {{ forecast.metrics.mae }}<br>
+                        <strong>RMSE:</strong> {{ forecast.metrics.rmse }}
+                    </td>
+                    <td><a href="{{ forecast.csv_url }}">Download CSV</a></td>
+                    <td><a href="{{ forecast.plot_url }}">View Plot</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
