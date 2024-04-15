@@ -1,4 +1,5 @@
 import time
+import traceback
 import uuid
 from datetime import datetime
 
@@ -83,8 +84,14 @@ def register_logging(func):
         if current_user:
             app.logger.info("Current user: %s", current_user)
 
-        # Call the original function
-        result = func(*args, **kwargs)
+        try:
+            # Call the original function
+            result = func(*args, **kwargs)
+        except Exception as e:
+            # Log the exception and traceback
+            app.logger.info("Error executing function %s: %s", func.__name__, str(e))
+            app.logger.info(traceback.format_exc())
+            raise  # Re-raise the exception
 
         end_time = time.time()  # Record end time
         total_time = end_time - start_time  # Calculate total time
