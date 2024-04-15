@@ -1,7 +1,9 @@
+import time
 import uuid
 from datetime import datetime
 
 import json
+from functools import wraps
 
 import numpy as np
 from flask import jsonify, send_from_directory
@@ -27,12 +29,15 @@ from firebase_admin import credentials, storage,auth, firestore
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+import logging
+from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 
 
 #root folder
@@ -58,6 +63,40 @@ firebase_admin.initialize_app(cred,{'storageBucket': 'proyectobigdata-b170b.apps
 db = firestore.client()
 bucket = storage.bucket()
 
+# Configure logging
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+handler = RotatingFileHandler(os.path.join(ROOT_FOLDER, 'app.log'), maxBytes=1000000, backupCount=4)
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+app.logger.setLevel(logging.INFO)
+
+def register_logging(func):
+    @wraps(func)  # Preserve original function's attributes
+    def wrapper(*args, **kwargs):
+        start_time = time.time()  # Record start time
+
+        # Log before executing the function
+        app.logger.info("Executing function: %s", func.__name__)
+
+        # Log current user if available
+        current_user = kwargs.get('current_user', None)
+        if current_user:
+            app.logger.info("Current user: %s", current_user)
+
+        # Call the original function
+        result = func(*args, **kwargs)
+
+        end_time = time.time()  # Record end time
+        total_time = end_time - start_time  # Calculate total time
+
+        # Log after executing the function with total time
+        app.logger.info("Function %s executed successfully. Total execution time: %.2f seconds", func.__name__, total_time)
+
+        return result
+
+    return wrapper
+
+@register_logging
 class User(UserMixin):
     def __init__(self, username, name, email, password):
         self.username = username
@@ -67,6 +106,7 @@ class User(UserMixin):
         self.password = password
 
 @login_manager.user_loader
+@register_logging
 def load_user(username):
     # Retrieve user from Firebase based on username
     user_ref = db.collection('users').where('username', '==', username).limit(1)
@@ -81,14 +121,17 @@ def load_user(username):
     return User(username, user_data['name'], user_data['email'], user_data['password'])
 
 # Function to check if a file has an allowed extension
+@register_logging
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
+@register_logging
 def welcome():
     return render_template('welcome.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
+@register_logging
 def signup():
     if request.method == 'POST':
         name = request.form['name']
@@ -113,6 +156,7 @@ def signup():
     return render_template('signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
+@register_logging
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -140,6 +184,7 @@ def login():
     return render_template('login.html')
 
 @app.route('/logout')
+@register_logging
 @login_required
 def logout():
     logout_user()
@@ -157,6 +202,7 @@ def datasets():
     return render_template('datasets.html', datasets=datasets)
 
 @app.route('/refresh_datasets', methods=['GET'])
+@register_logging
 @login_required
 def refresh_datasets():
     # Handle the refresh action here
@@ -165,6 +211,7 @@ def refresh_datasets():
     return render_template('datasets.html', datasets=datasets)
 
 @app.route('/models', methods=['GET', 'POST'])
+@register_logging
 @login_required
 def models():
     # Load the regressors from the JSON file
@@ -185,6 +232,8 @@ def models():
     return render_template('models.html', regressors=regressors, user_saved_models=user_saved_models)
 
 @app.route('/predict')
+@register_logging
+@login_required
 def predict():
     datasets_ref = db.collection(DATASETS_FOLDER).document(current_user.username).collection('files')
     datasets = datasets_ref.get()
@@ -202,6 +251,7 @@ def predict():
     return render_template('predict.html', datasets=datasets, models=user_saved_models)
 
 @app.route('/save_model', methods=['POST'])
+@register_logging
 @login_required
 def save_model():
     regressor = request.form['regressor']
@@ -271,6 +321,8 @@ def internal_save_model(model_file_url, model_name, model_id, regressor, model_p
     flash('Model saved successfully', 'success')
 
 @app.route('/results')
+@register_logging
+@login_required
 def results():
     # Retrieve forecasts from Firestore
     forecasts = db.collection(FORECAST_FOLDER).document(current_user.username).collection('files').get()
@@ -287,14 +339,20 @@ def results():
     return render_template('results.html', forecasts=forecast_data)
 
 @app.route('/contact')
+@register_logging
+@login_required
 def contact():
     return render_template('contact.html')
 
 @app.route('/model_description')
+@register_logging
+@login_required
 def model_description():
     return render_template('model_description.html')
 
 @app.route('/upload_csv', methods=['POST'])
+@register_logging
+@login_required
 def upload_csv():
     # Get form data
     if 'file' not in request.files:
@@ -370,6 +428,8 @@ def upload_csv():
         return redirect(request.url)
 
 @app.route('/download_csv/<dataset_id>')
+@register_logging
+@login_required
 def download_csv(dataset_id):
     dataset_ref = db.collection('datasets').document(dataset_id)
     dataset = dataset_ref.get()
@@ -384,6 +444,8 @@ def download_csv(dataset_id):
 
 ####################################Previous
 @app.route('/upload', methods=['POST'])
+@register_logging
+@login_required
 def upload():
     # Check if the POST request has a file part
     if 'file' not in request.files:
@@ -408,6 +470,8 @@ def upload():
     return redirect(url_for('map_columns', filename=filename))
 
 @app.route('/prepare_train_mapping', methods=['POST'])
+@register_logging
+@login_required
 def prepare_train_mapping():
     # Get form data
     model_root = request.form['model_root']
@@ -441,6 +505,7 @@ def prepare_train_mapping():
     # Render the column mapping template
     return render_template('train_model.html', columns=columns,dataset_root=dataset_root,model_root=model_root, model_url=model_url, dataset_url=dataset_url)
 
+@register_logging
 def custom_metric(y_true, y_pred):
     '''
     Calculate the MAE, MSE, RMSE, and R2
@@ -455,6 +520,8 @@ def custom_metric(y_true, y_pred):
 
 
 @app.route('/train_model', methods=['POST'])
+@register_logging
+@login_required
 def train_model():
     # Get form data
     model_root = request.form['model_root']
@@ -630,6 +697,7 @@ def train_model():
         return render_template('error.html', error=str(e))
 
 @app.route('/plotly_plot')
+@register_logging
 def plotly_plot():
     # Get the URL of the Plotly plot
     plot_url = request.args.get("plot_url")
@@ -650,6 +718,8 @@ def plotly_plot():
     return send_from_directory(static_folder, filename)
 
 @app.route('/success')
+@register_logging
+@login_required
 def success():
     return render_template('success.html',
                            forecast_root=request.args["forecast_root"],
@@ -657,6 +727,7 @@ def success():
                            plotly_plot_url=request.args["plotly_plot_url"]
                            )
 
+@register_logging
 def create_model(regressor, model_params):
     if regressor == 'LinearRegression':
         from sklearn.linear_model import LinearRegression
@@ -673,6 +744,7 @@ def create_model(regressor, model_params):
     return model
 
 
+@register_logging
 def save_model_as_file(model, username, model_id):
     # Define the directory path for storing models
     models_dir = os.path.join(ROOT_FOLDER, 'models', username)

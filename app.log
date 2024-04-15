@@ -1,0 +1,254 @@
+2024-04-14 19:12:32,417 - INFO - Executing function: welcome
+2024-04-14 19:12:32,441 - INFO - Executing function: load_user
+2024-04-14 19:12:33,880 - INFO - Executing function: User
+2024-04-14 19:12:33,881 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:33,882 - INFO - Function load_user executed successfully. Total execution time: 1.44 seconds
+2024-04-14 19:12:33,883 - INFO - Function welcome executed successfully. Total execution time: 1.47 seconds
+2024-04-14 19:12:37,579 - INFO - Executing function: login
+2024-04-14 19:12:37,599 - INFO - Executing function: load_user
+2024-04-14 19:12:37,728 - INFO - Executing function: User
+2024-04-14 19:12:37,729 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:37,730 - INFO - Function load_user executed successfully. Total execution time: 0.13 seconds
+2024-04-14 19:12:37,732 - INFO - Function login executed successfully. Total execution time: 0.15 seconds
+2024-04-14 19:12:43,535 - INFO - Executing function: login
+2024-04-14 19:12:47,226 - INFO - Executing function: User
+2024-04-14 19:12:47,227 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:47,228 - INFO - Function login executed successfully. Total execution time: 3.69 seconds
+2024-04-14 19:12:47,240 - INFO - Executing function: load_user
+2024-04-14 19:12:47,354 - INFO - Executing function: User
+2024-04-14 19:12:47,354 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:47,355 - INFO - Function load_user executed successfully. Total execution time: 0.12 seconds
+2024-04-14 19:12:50,933 - INFO - Executing function: load_user
+2024-04-14 19:12:51,045 - INFO - Executing function: User
+2024-04-14 19:12:51,047 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:51,047 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
+2024-04-14 19:12:59,587 - INFO - Executing function: upload_csv
+2024-04-14 19:12:59,590 - INFO - Executing function: load_user
+2024-04-14 19:12:59,700 - INFO - Executing function: User
+2024-04-14 19:12:59,702 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:12:59,703 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
+2024-04-14 19:12:59,709 - INFO - Executing function: allowed_file
+2024-04-14 19:12:59,709 - INFO - Function allowed_file executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:01,155 - INFO - Function upload_csv executed successfully. Total execution time: 1.57 seconds
+2024-04-14 19:13:01,164 - INFO - Executing function: load_user
+2024-04-14 19:13:01,291 - INFO - Executing function: User
+2024-04-14 19:13:01,292 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:01,292 - INFO - Function load_user executed successfully. Total execution time: 0.13 seconds
+2024-04-14 19:13:03,458 - INFO - Executing function: refresh_datasets
+2024-04-14 19:13:03,461 - INFO - Executing function: load_user
+2024-04-14 19:13:03,700 - INFO - Executing function: User
+2024-04-14 19:13:03,702 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:03,702 - INFO - Function load_user executed successfully. Total execution time: 0.24 seconds
+2024-04-14 19:13:03,795 - INFO - Function refresh_datasets executed successfully. Total execution time: 0.34 seconds
+2024-04-14 19:13:06,372 - INFO - Executing function: models
+2024-04-14 19:13:06,374 - INFO - Executing function: load_user
+2024-04-14 19:13:06,467 - INFO - Executing function: User
+2024-04-14 19:13:06,468 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:06,468 - INFO - Function load_user executed successfully. Total execution time: 0.09 seconds
+2024-04-14 19:13:06,616 - INFO - Function models executed successfully. Total execution time: 0.24 seconds
+2024-04-14 19:13:19,018 - INFO - Executing function: save_model
+2024-04-14 19:13:19,020 - INFO - Executing function: load_user
+2024-04-14 19:13:19,109 - INFO - Executing function: User
+2024-04-14 19:13:19,110 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:19,110 - INFO - Function load_user executed successfully. Total execution time: 0.09 seconds
+2024-04-14 19:13:19,112 - INFO - Executing function: create_model
+2024-04-14 19:13:19,113 - INFO - Function create_model executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:19,113 - INFO - Executing function: save_model_as_file
+2024-04-14 19:13:19,121 - INFO - Function save_model_as_file executed successfully. Total execution time: 0.01 seconds
+2024-04-14 19:13:19,383 - INFO - Function save_model executed successfully. Total execution time: 0.36 seconds
+2024-04-14 19:13:19,392 - INFO - Executing function: models
+2024-04-14 19:13:19,393 - INFO - Executing function: load_user
+2024-04-14 19:13:19,480 - INFO - Executing function: User
+2024-04-14 19:13:19,481 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:19,481 - INFO - Function load_user executed successfully. Total execution time: 0.09 seconds
+2024-04-14 19:13:19,586 - INFO - Function models executed successfully. Total execution time: 0.19 seconds
+2024-04-14 19:13:31,912 - INFO - Executing function: save_model
+2024-04-14 19:13:31,914 - INFO - Executing function: load_user
+2024-04-14 19:13:32,014 - INFO - Executing function: User
+2024-04-14 19:13:32,016 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:32,016 - INFO - Function load_user executed successfully. Total execution time: 0.10 seconds
+2024-04-14 19:13:32,018 - INFO - Executing function: create_model
+2024-04-14 19:13:32,018 - INFO - Function create_model executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:32,019 - INFO - Executing function: save_model_as_file
+2024-04-14 19:13:32,027 - INFO - Function save_model_as_file executed successfully. Total execution time: 0.01 seconds
+2024-04-14 19:13:32,290 - INFO - Function save_model executed successfully. Total execution time: 0.38 seconds
+2024-04-14 19:13:32,305 - INFO - Executing function: models
+2024-04-14 19:13:32,307 - INFO - Executing function: load_user
+2024-04-14 19:13:32,392 - INFO - Executing function: User
+2024-04-14 19:13:32,393 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:13:32,394 - INFO - Function load_user executed successfully. Total execution time: 0.09 seconds
+2024-04-14 19:13:32,491 - INFO - Function models executed successfully. Total execution time: 0.19 seconds
+2024-04-14 19:14:40,953 - INFO - Executing function: predict
+2024-04-14 19:14:40,955 - INFO - Executing function: load_user
+2024-04-14 19:14:41,065 - INFO - Executing function: User
+2024-04-14 19:14:41,066 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:14:41,066 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
+2024-04-14 19:14:41,429 - INFO - Function predict executed successfully. Total execution time: 0.48 seconds
+2024-04-14 19:14:45,595 - INFO - Executing function: prepare_train_mapping
+2024-04-14 19:14:45,596 - INFO - Executing function: load_user
+2024-04-14 19:14:45,715 - INFO - Executing function: User
+2024-04-14 19:14:45,716 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:14:45,716 - INFO - Function load_user executed successfully. Total execution time: 0.12 seconds
+2024-04-14 19:14:46,613 - INFO - Function prepare_train_mapping executed successfully. Total execution time: 1.02 seconds
+2024-04-14 19:14:58,288 - INFO - Executing function: train_model
+2024-04-14 19:14:58,289 - INFO - Executing function: load_user
+2024-04-14 19:14:58,393 - INFO - Executing function: User
+2024-04-14 19:14:58,394 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:14:58,395 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
+2024-04-14 19:15:00,053 - ERROR - Exception on /train_model [POST]
+Traceback (most recent call last):
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 566, in train_model
+    model = pickle.load(model_file)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_pickle.UnpicklingError: invalid load key, '<'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 697, in train_model
+    return render_template('error.html', error=str(e))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: error.html
+2024-04-14 19:15:30,377 - INFO - Executing function: train_model
+2024-04-14 19:15:30,378 - INFO - Executing function: load_user
+2024-04-14 19:15:30,473 - INFO - Executing function: User
+2024-04-14 19:15:30,474 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:15:30,474 - INFO - Function load_user executed successfully. Total execution time: 0.10 seconds
+2024-04-14 19:15:53,593 - ERROR - Exception on /train_model [POST]
+Traceback (most recent call last):
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 566, in train_model
+    model = pickle.load(model_file)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+_pickle.UnpicklingError: invalid load key, '<'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Data\UP\8vo Semestre\Big Data\Forecasting Algorithm\app.py", line 697, in train_model
+    return render_template('error.html', error=str(e))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\anaconda3\Lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: error.html
+2024-04-14 19:16:07,170 - INFO - Executing function: prepare_train_mapping
+2024-04-14 19:16:07,171 - INFO - Executing function: load_user
+2024-04-14 19:16:07,366 - INFO - Executing function: User
+2024-04-14 19:16:07,368 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:16:07,368 - INFO - Function load_user executed successfully. Total execution time: 0.20 seconds
+2024-04-14 19:16:08,246 - INFO - Function prepare_train_mapping executed successfully. Total execution time: 1.08 seconds
+2024-04-14 19:16:31,503 - INFO - Executing function: train_model
+2024-04-14 19:16:31,506 - INFO - Executing function: load_user
+2024-04-14 19:16:31,628 - INFO - Executing function: User
+2024-04-14 19:16:31,629 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:16:31,629 - INFO - Function load_user executed successfully. Total execution time: 0.12 seconds
+2024-04-14 19:16:49,693 - INFO - Executing function: custom_metric
+2024-04-14 19:16:49,701 - INFO - Function custom_metric executed successfully. Total execution time: 0.01 seconds
+2024-04-14 19:16:52,354 - INFO - Function train_model executed successfully. Total execution time: 20.85 seconds
+2024-04-14 19:16:52,369 - INFO - Executing function: success
+2024-04-14 19:16:52,371 - INFO - Executing function: load_user
+2024-04-14 19:16:52,467 - INFO - Executing function: User
+2024-04-14 19:16:52,470 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:16:52,470 - INFO - Function load_user executed successfully. Total execution time: 0.10 seconds
+2024-04-14 19:16:52,502 - INFO - Function success executed successfully. Total execution time: 0.13 seconds
+2024-04-14 19:16:57,179 - INFO - Executing function: plotly_plot
+2024-04-14 19:16:59,110 - INFO - Function plotly_plot executed successfully. Total execution time: 1.93 seconds
+2024-04-14 19:17:17,462 - INFO - Executing function: results
+2024-04-14 19:17:17,464 - INFO - Executing function: load_user
+2024-04-14 19:17:17,569 - INFO - Executing function: User
+2024-04-14 19:17:17,570 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:17:17,571 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
+2024-04-14 19:17:17,708 - INFO - Function results executed successfully. Total execution time: 0.25 seconds
+2024-04-14 19:18:02,722 - INFO - Executing function: contact
+2024-04-14 19:18:02,724 - INFO - Executing function: load_user
+2024-04-14 19:18:02,863 - INFO - Executing function: User
+2024-04-14 19:18:02,865 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:18:02,865 - INFO - Function load_user executed successfully. Total execution time: 0.14 seconds
+2024-04-14 19:18:02,881 - INFO - Function contact executed successfully. Total execution time: 0.16 seconds
+2024-04-14 19:18:05,515 - INFO - Executing function: model_description
+2024-04-14 19:18:05,517 - INFO - Executing function: load_user
+2024-04-14 19:18:05,619 - INFO - Executing function: User
+2024-04-14 19:18:05,620 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:18:05,620 - INFO - Function load_user executed successfully. Total execution time: 0.10 seconds
+2024-04-14 19:18:05,636 - INFO - Function model_description executed successfully. Total execution time: 0.12 seconds
+2024-04-14 19:18:08,298 - INFO - Executing function: load_user
+2024-04-14 19:18:08,400 - INFO - Executing function: User
+2024-04-14 19:18:08,401 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:18:08,401 - INFO - Function load_user executed successfully. Total execution time: 0.10 seconds
+2024-04-14 19:18:11,849 - INFO - Executing function: load_user
+2024-04-14 19:18:11,958 - INFO - Executing function: User
+2024-04-14 19:18:11,959 - INFO - Function User executed successfully. Total execution time: 0.00 seconds
+2024-04-14 19:18:11,960 - INFO - Function load_user executed successfully. Total execution time: 0.11 seconds
