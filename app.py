@@ -68,6 +68,8 @@ bucket = storage.bucket()
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler = RotatingFileHandler(os.path.join(ROOT_FOLDER, 'app.log'), maxBytes=1000000, backupCount=4)
 handler.setFormatter(formatter)
+logging.getLogger('werkzeug').setLevel(logging.DEBUG)
+logging.getLogger('werkzeug').addHandler(handler)
 app.logger.addHandler(handler)
 app.logger.setLevel(logging.INFO)
 
@@ -171,9 +173,15 @@ def login():
 
         # Retrieve user from Firebase based on username
         user_ref = db.collection('users').where('username', '==', username).limit(1)
-        users = user_ref.get()
+        try:
+            users = user_ref.get()
+        except Exception as e:
+            app.logger.error(f"Error retrieving user from database: {e}")
+            flash('An error occurred. Please try again later.', 'error')
+            return redirect(url_for('login'))
 
         if not users:
+            app.logger.warning(f"Login attempt with invalid username: {username}")
             flash('Invalid username or password', 'error')
             return redirect(url_for('login'))
 
@@ -184,8 +192,10 @@ def login():
             # Log in the user
             user_obj = User(username=username, name=user['name'], email=user['email'], password=user['password'])  # Create User object
             login_user(user_obj)  # Login the user
+            app.logger.info(f"User {username} logged in successfully")
             return redirect(url_for('user_page'))
         else:
+            app.logger.warning(f"Login attempt with invalid password for username: {username}")
             flash('Invalid username or password', 'error')
 
     return render_template('login.html')

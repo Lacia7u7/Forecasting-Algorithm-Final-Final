@@ -97,7 +97,7 @@
 </nav>
 <div class="container">
     <h1>Predict</h1>
-    <form action="{{ url_for('prepare_train_mapping') }}" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you want to execute the prediction?');">
+    <form action="{{ url_for('prepare_train_mapping') }}" enctype="multipart/form-data" method="post">
         <div class="form-group">
             <label for="model_root">Select Model:</label>
             <select name="model_root" id="model_root" class="form-control">
